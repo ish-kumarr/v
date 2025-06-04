@@ -13,9 +13,13 @@ import SuccessStep from "./booking/success-step";
 
 export default function BookingForm() {
   const [step, setStep] = useState(1);
-  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [selectedService, setSelectedService] = useState<string>("");
   const [useEmail, setUseEmail] = useState(false);
-  const { register, handleSubmit, watch } = useForm<FormData>();
+  const { register, handleSubmit, watch } = useForm<FormData>({
+    defaultValues: {
+      serviceType: ""
+    }
+  });
   const formData = watch();
 
   const nextStep = () => {
