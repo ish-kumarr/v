@@ -2,14 +2,18 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { containerVariants } from "../animations";
 import { FormData } from "../types";
-import { UseFormRegister } from "react-hook-form";
+import { UseFormRegister, UseFormWatch } from "react-hook-form";
 
 interface OtherFormProps {
   register: UseFormRegister<FormData>;
+  watch: UseFormWatch<FormData>;
   nextStep: () => void;
 }
 
-export default function OtherForm({ register, nextStep }: OtherFormProps) {
+export default function OtherForm({ register, watch, nextStep }: OtherFormProps) {
+  const projectDescription = watch("projectDescription");
+  const isValid = projectDescription && projectDescription.length > 0;
+
   return (
     <motion.div 
       className="space-y-12"
@@ -30,8 +34,11 @@ export default function OtherForm({ register, nextStep }: OtherFormProps) {
         </label>
       </div>
       <button
-        onClick={nextStep}
-        className="px-8 py-3 bg-[#287bd2] rounded-full text-white font-medium flex items-center gap-2 hover:bg-[#287bd2]/90 transition-colors"
+        onClick={() => isValid && nextStep()}
+        disabled={!isValid}
+        className={`px-8 py-3 rounded-full text-white font-medium flex items-center gap-2 transition-colors ${
+          isValid ? "bg-[#287bd2] hover:bg-[#287bd2]/90 cursor-pointer" : "bg-[#287bd2]/50 cursor-not-allowed"
+        }`}
       >
         Continue <ArrowRight className="w-4 h-4" />
       </button>
