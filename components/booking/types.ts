@@ -2,7 +2,7 @@ export type FormData = {
   name: string;
   email?: string;
   phone?: string;
-  serviceType?: string;
+  serviceType: string;
   // YouTube specific fields
   channelNiche?: string;
   videoLength?: string;
