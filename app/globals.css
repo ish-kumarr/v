@@ -1,0 +1,353 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.gradient-background {
+  background: radial-gradient(circle at top right, rgba(40, 123, 210, 0.15), transparent 50%),
+              radial-gradient(circle at bottom left, rgba(40, 123, 210, 0.15), transparent 50%),
+              #050505;
+  background-size: 200% 200%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+.delay-100 {
+  animation-delay: 3.1s;
+}
+
+.delay-200 {
+  animation-delay: 3.2s;
+}
+
+.delay-300 {
+  animation-delay: 3.3s;
+}
+
+.delay-400 {
+  animation-delay: 3.4s;
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg) scale(1.5);
+  }
+  to {
+    transform: rotate(360deg) scale(1.5);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.book-now-button {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(40, 123, 210, 0.3);
+  transition: all 0.3s ease;
+}
+
+.book-now-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(40, 123, 210, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+.book-now-button:hover {
+  border-color: rgba(40, 123, 210, 0.8);
+  box-shadow: 0 0 15px rgba(40, 123, 210, 0.3);
+}
+
+.success-checkmark {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.check-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid #287bd2;
+}
+
+.check-icon::before {
+  top: 48px;
+  left: 18px;
+  width: 20px;
+  transform: rotate(45deg);
+  position: absolute;
+  content: "";
+  height: 4px;
+  background-color: #287bd2;
+  animation: checkmark-before 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.check-icon::after {
+  top: 42px;
+  left: 30px;
+  width: 30px;
+  transform: rotate(-45deg);
+  position: absolute;
+  content: "";
+  height: 4px;
+  background-color: #287bd2;
+  animation: checkmark-after 0.4s ease-in-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+@keyframes checkmark-before {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes checkmark-after {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 30px;
+    opacity: 1;
+  }
+}
+
+.error-x {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.x-icon {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  border-radius: 50%;
+  box-sizing: content-box;
+  border: 4px solid #F44336;
+}
+
+.x-icon::before,
+.x-icon::after {
+  position: absolute;
+  content: "";
+  height: 4px;
+  background-color: #F44336;
+  width: 40px;
+  top: 38px;
+  left: 20px;
+}
+
+.x-icon::before {
+  transform: rotate(45deg);
+  animation: x-before 0.4s ease-in-out forwards;
+  opacity: 0;
+}
+
+.x-icon::after {
+  transform: rotate(-45deg);
+  animation: x-after 0.4s ease-in-out forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+
+@keyframes x-before {
+  0% {
+    width: 0;
+    left: 40px;
+    opacity: 0;
+  }
+  100% {
+    width: 40px;
+    left: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes x-after {
+  0% {
+    width: 0;
+    left: 40px;
+    opacity: 0;
+  }
+  100% {
+    width: 40px;
+    left: 20px;
+    opacity: 1;
+  }
+}
+
+@keyframes revealPage {
+  0% {
+    opacity: 0;
+    transform: scale(0.98) translateY(20px);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+.page-reveal {
+  animation: revealPage 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 3s;
+}
+
+/* New animations for page transitions */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.2s;
+}
