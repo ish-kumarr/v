@@ -20,13 +20,3 @@ export type FormData = {
   timeline?: string;
   budget?: string;
 };
-
-export type Service = {
-  id: string;
-  title: string;
-  description: string;
-  gradient: string;
-  highlightColor: string;
-  icon: JSX.Element;
-  comingSoon?: boolean;
-};
