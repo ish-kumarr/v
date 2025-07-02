@@ -10,6 +10,29 @@ const Preloader = dynamic(() => import('@/components/preloader'), {
   ssr: false
 });
 
+export const metadata = {
+  title: 'Ish Kumar - Visuals and Designs | Coming Soon - Pre-Opening Offers',
+  description: 'Professional video editing and VFX services by Ish Kumar. Take advantage of our exclusive pre-opening offers and be the first to experience our services.',
+  openGraph: {
+    title: 'Ish Kumar - Visuals and Designs | Coming Soon - Pre-Opening Offers',
+    description: 'Professional video editing and VFX services by Ish Kumar. Take advantage of our exclusive pre-opening offers and be the first to experience our services.',
+    images: [
+      {
+        url: '/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Ish Kumar - Visuals and Designs Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ish Kumar - Visuals and Designs | Coming Soon - Pre-Opening Offers',
+    description: 'Professional video editing and VFX services by Ish Kumar. Take advantage of our exclusive pre-opening offers and be the first to experience our services.',
+    images: ['/logo.png'],
+  },
+};
+
 export default function Home() {
   return (
     <main className="gradient-background min-h-screen flex flex-col items-center justify-between py-8 sm:py-12 px-4 sm:px-8 md:px-16">
