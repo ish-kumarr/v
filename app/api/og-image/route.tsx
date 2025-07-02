@@ -22,15 +22,12 @@ export async function GET(request: Request) {
           fontFamily: '"Inter", sans-serif',
           padding: 40,
           boxSizing: 'border-box',
+          backgroundImage: 'url("/logo.png")',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center top',
+          backgroundSize: '150px 150px',
         }}
       >
-        <img
-          src="/logo.png"
-          alt="Logo"
-          width={150}
-          height={150}
-          style={{ marginBottom: 40 }}
-        />
         <h1
           style={{
             fontSize: 64,
@@ -38,6 +35,7 @@ export async function GET(request: Request) {
             textAlign: 'center',
             margin: 0,
             padding: 0,
+            marginTop: 180,
           }}
         >
           {title}
