@@ -1,4 +1,5 @@
 export const metadata = {
+  metadataBase: new URL('https://yourdomain.com'),
   title: 'Ish Kumar - Visuals and Designs | Book Now - Pre-Opening Offers',
   description: 'Book professional video editing and VFX services by Ish Kumar. Enjoy exclusive pre-opening offers and secure your spot today.',
   openGraph: {
@@ -7,8 +8,8 @@ export const metadata = {
     images: [
       {
         url: '/logo.png',
-        width: 800,
-        height: 600,
+        width: 1200,
+        height: 630,
         alt: 'Ish Kumar - Visuals and Designs Logo',
       },
     ],
